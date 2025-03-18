@@ -7,3 +7,36 @@ main {
   width: min(100% - 3rem, var(--container-max, 60ch));
   margin-inline: auto;
 }
+
+.nytt {
+  position: fixed;
+  bottom: 100px; /* Distance from the top of the viewport */
+  right: 200px; /* Distance from the left of the viewport */
+  background-color: #002fff;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 4px;
+  box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.1);
+  transform: scale(1.4);
+  transition: 0.5s ease-out;
+}
+
+.nytt:hover {
+  transform: scale(1.6);
+  transition: 0.5s ease-in-out;
+}
+
+.normal-link {
+  text-decoration: none; 
+  color: white; 
+  font: inherit; 
+  transition: 0.5s ease-out;
+}
+
+.normal-link:hover {
+  text-decoration: none;
+  color: rgb(212, 208, 208);
+  font-size: 1.3rem;
+  transition: 0.5s 
+  
+}

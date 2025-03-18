@@ -1,6 +1,11 @@
 import "dotenv/config"
 import express from "express"
-import nunjucks from "nunjucks"
+import session from "express-session";
+import logger from "morgan";
+import nunjucks from "nunjucks";
+import indexRouter from "./routes/index.js"
+
+
 
 const app = express()
 const port = 3000
@@ -12,11 +17,15 @@ nunjucks.configure("views", {
 
 app.use(express.static("public"))
 
-app.get("/", (req, res) => {
-  res.render("index.njk",
-    { title: "Qvixter", message: "Best service, legit." }
-  )
-})
+app.use(session({
+  secret: "keyboard cat",
+  resave: false,
+  saveUninitialized: true,
+  cookie: { sameSite: true }
+}))
+
+
+app.use("/", indexRouter)
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
